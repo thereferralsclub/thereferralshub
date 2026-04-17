@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Disclaimer — The Referrals Hub</title>
+  <meta name="description" content="Disclaimer for The Referrals Hub. Affiliate disclosure and terms of use." />
+  <meta name="robots" content="noindex, follow" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Spectral:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #faf4ec; --cream-dark: #f2e8d9; --parchment: #ede0cc;
+      --terracotta: #b85c38; --terracotta-mid: #d4714e; --terracotta-light: #e8956d;
+      --terracotta-pale: #f5ddd3; --sienna: #8b3a22; --ochre: #c49a2a;
+      --sage: #6e8f68; --sage-light: #d8ebd5;
+      --ink: #2a1a0f; --ink-mid: #5c3d28; --ink-light: #9b7558;
+      --card-bg: #fffaf4; --border: rgba(184,92,56,0.14);
+      --shadow: rgba(90,40,15,0.10);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream); color: var(--ink);
+      font-family: 'DM Sans', sans-serif; min-height: 100vh;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        radial-gradient(ellipse 70% 55% at 92% -5%, rgba(184,92,56,0.10) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 45% at -8% 85%, rgba(196,154,42,0.08) 0%, transparent 60%);
+    }
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 14px 28px; display: flex; align-items: center; gap: 16px;
+      background: rgba(250,244,236,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--terracotta-pale); color: var(--terracotta);
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+      padding: 7px 16px; border-radius: 40px;
+      border: 1px solid rgba(184,92,56,0.22); text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-back:hover { background: var(--terracotta); color: #fff; }
+    .nav-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 600; color: var(--ink-mid);
+    }
+    .page {
+      position: relative; z-index: 1;
+      max-width: 720px; margin: 0 auto; padding: 120px 24px 80px;
+    }
+    .doc-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--terracotta-pale); color: var(--terracotta);
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.13em;
+      text-transform: uppercase; padding: 6px 16px; border-radius: 40px;
+      border: 1px solid rgba(184,92,56,0.22); margin-bottom: 18px;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem); font-weight: 700;
+      color: var(--ink); margin-bottom: 8px; line-height: 1.1;
+    }
+    .doc-meta {
+      font-size: 0.8rem; color: var(--ink-light); margin-bottom: 40px;
+      font-family: 'Spectral', serif; font-style: italic;
+    }
+    .ornament {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 40px;
+    }
+    .ornament-line { width: 64px; height: 1px; background: linear-gradient(90deg, transparent, var(--terracotta-light)); }
+    .ornament-line.r { background: linear-gradient(90deg, var(--terracotta-light), transparent); }
+    .ornament-symbol { color: var(--terracotta-light); font-size: 13px; letter-spacing: 4px; }
+    .doc-section { margin-bottom: 36px; }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 700; color: var(--ink);
+      margin-bottom: 12px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--parchment);
+    }
+    p {
+      font-family: 'Spectral', serif;
+      font-size: 0.95rem; line-height: 1.85; color: var(--ink-mid);
+      margin-bottom: 12px;
+    }
+    ul {
+      margin: 8px 0 12px 20px;
+      font-family: 'Spectral', serif;
+      font-size: 0.95rem; line-height: 1.85; color: var(--ink-mid);
+    }
+    li { margin-bottom: 6px; }
+    a { color: var(--terracotta); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .highlight-box {
+      background: linear-gradient(135deg, #fffaf4 0%, #f8eed9 100%);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--terracotta-mid);
+      border-radius: 14px; padding: 18px 22px; margin-bottom: 36px;
+      font-family: 'Spectral', serif; font-size: 0.95rem;
+      line-height: 1.8; color: var(--ink-mid);
+    }
+    .highlight-box strong { color: var(--terracotta); font-weight: 600; }
+    footer {
+      text-align: center; margin-top: 60px;
+      font-family: 'Spectral', serif; font-style: italic;
+      font-size: 0.82rem; color: var(--ink-light); line-height: 2;
+      border-top: 1px solid var(--parchment); padding-top: 28px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-back">← Back to The Referrals Hub</a>
+  <span class="nav-title">Disclaimer</span>
+</nav>
+
+<div class="page">
+
+  <div class="doc-eyebrow">Legal</div>
+  <h1>Disclaimer</h1>
+  <p class="doc-meta">The Referrals Hub &nbsp;·&nbsp; Last updated: March 2026</p>
+
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <div class="ornament-symbol">✦ ✦ ✦</div>
+    <div class="ornament-line r"></div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>Plain English summary:</strong> We earn small referral bonuses when you sign up through our links. It costs you nothing extra, and we only recommend programs we genuinely believe in. Bonuses and terms change — always check directly with the provider before signing up.
+  </div>
+
+  <div class="doc-section">
+    <h2>1. Affiliate & Referral Disclosure</h2>
+    <p>The Referrals Hub participates in referral and affiliate programs. This means that when you click a link on our site and complete a qualifying action — such as signing up for a service or making a purchase — we may earn a referral bonus or commission from the provider.</p>
+    <p>This compensation comes at no additional cost to you. In many cases, signing up through our referral link will earn you a bonus that you would not receive by signing up directly.</p>
+    <p>We are committed to transparency. All referral and affiliate links on this site are identified as such in the footer of the page.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>2. No Financial Advice</h2>
+    <p>The content on The Referrals Hub is for informational and entertainment purposes only. Nothing on this site should be construed as financial, investment, tax, or legal advice.</p>
+    <p>Before making any financial decision — including signing up for a credit card, investing in cryptocurrency, or enrolling in a financial service — we strongly encourage you to conduct your own research and consult a qualified professional.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>3. Accuracy of Information</h2>
+    <p>We make every effort to ensure the information on this site is accurate and up to date. However, referral bonuses, program terms, and offer availability can change at any time without notice.</p>
+    <p>We cannot guarantee that any bonus, reward, or promotional offer listed on this site will be available at the time of your sign-up. Always verify current terms and conditions directly on the provider's official website before proceeding.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>4. Third-Party Services</h2>
+    <p>All programs, services, and products featured on The Referrals Hub are operated by independent third parties. A full list of featured programs is available on <a href="index.html">our homepage</a>.</p>
+    <p>Inclusion of a program on this site does not constitute an endorsement of that company's business practices, customer service, or financial stability.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>5. Earnings Disclaimer</h2>
+    <p>Any references to earnings, bonuses, or cash back amounts on this site are based on publicly available information provided by the respective programs. Individual results will vary based on your usage, eligibility, and the terms of each program.</p>
+    <p>The Referrals Hub makes no guarantees or promises about the amount you will earn from any program listed on this site.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>6. External Links</h2>
+    <p>Our site contains links to external websites. Once you leave The Referrals Hub, we have no control over the content or practices of those sites. We encourage you to read the terms of service and privacy policy of any site you visit.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>7. Contact</h2>
+    <p>If you have questions about this disclaimer or anything on The Referrals Hub, please visit our <a href="index.html">homepage</a>.</p>
+  </div>
+
+  <footer>
+    © 2026 The Referrals Hub · <a href="index.html">Home</a> · <a href="privacy-policy.html">Privacy Policy</a>
+  </footer>
+
+</div>
+</body>
+</html>

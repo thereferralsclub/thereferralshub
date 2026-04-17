@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — The Referrals Hub</title>
+  <meta name="description" content="Privacy Policy for The Referrals Hub. We do not collect personal data." />
+  <meta name="robots" content="noindex, follow" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Spectral:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #faf4ec; --cream-dark: #f2e8d9; --parchment: #ede0cc;
+      --terracotta: #b85c38; --terracotta-mid: #d4714e; --terracotta-light: #e8956d;
+      --terracotta-pale: #f5ddd3; --sienna: #8b3a22; --ochre: #c49a2a;
+      --sage: #6e8f68; --sage-light: #d8ebd5;
+      --ink: #2a1a0f; --ink-mid: #5c3d28; --ink-light: #9b7558;
+      --card-bg: #fffaf4; --border: rgba(184,92,56,0.14);
+      --shadow: rgba(90,40,15,0.10);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream); color: var(--ink);
+      font-family: 'DM Sans', sans-serif; min-height: 100vh;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        radial-gradient(ellipse 70% 55% at 92% -5%, rgba(184,92,56,0.10) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 45% at -8% 85%, rgba(196,154,42,0.08) 0%, transparent 60%);
+    }
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 14px 28px; display: flex; align-items: center; gap: 16px;
+      background: rgba(250,244,236,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--terracotta-pale); color: var(--terracotta);
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+      padding: 7px 16px; border-radius: 40px;
+      border: 1px solid rgba(184,92,56,0.22); text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-back:hover { background: var(--terracotta); color: #fff; }
+    .nav-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 600; color: var(--ink-mid);
+    }
+    .page {
+      position: relative; z-index: 1;
+      max-width: 720px; margin: 0 auto; padding: 120px 24px 80px;
+    }
+    .doc-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--terracotta-pale); color: var(--terracotta);
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.13em;
+      text-transform: uppercase; padding: 6px 16px; border-radius: 40px;
+      border: 1px solid rgba(184,92,56,0.22); margin-bottom: 18px;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem); font-weight: 700;
+      color: var(--ink); margin-bottom: 8px; line-height: 1.1;
+    }
+    .doc-meta {
+      font-size: 0.8rem; color: var(--ink-light); margin-bottom: 40px;
+      font-family: 'Spectral', serif; font-style: italic;
+    }
+    .ornament {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 40px;
+    }
+    .ornament-line { width: 64px; height: 1px; background: linear-gradient(90deg, transparent, var(--terracotta-light)); }
+    .ornament-line.r { background: linear-gradient(90deg, var(--terracotta-light), transparent); }
+    .ornament-symbol { color: var(--terracotta-light); font-size: 13px; letter-spacing: 4px; }
+
+    .doc-section { margin-bottom: 36px; }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 700; color: var(--ink);
+      margin-bottom: 12px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--parchment);
+    }
+    p {
+      font-family: 'Spectral', serif;
+      font-size: 0.95rem; line-height: 1.85; color: var(--ink-mid);
+      margin-bottom: 12px;
+    }
+    ul {
+      margin: 8px 0 12px 20px;
+      font-family: 'Spectral', serif;
+      font-size: 0.95rem; line-height: 1.85; color: var(--ink-mid);
+    }
+    li { margin-bottom: 6px; }
+    a { color: var(--terracotta); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .highlight-box {
+      background: var(--sage-light); border: 1px solid rgba(110,143,104,0.25);
+      border-left: 3px solid var(--sage); border-radius: 14px;
+      padding: 18px 22px; margin-bottom: 36px;
+      font-family: 'Spectral', serif; font-size: 0.95rem;
+      line-height: 1.8; color: var(--ink-mid);
+    }
+    .highlight-box strong { color: var(--sage); font-weight: 600; }
+
+    footer {
+      text-align: center; margin-top: 60px;
+      font-family: 'Spectral', serif; font-style: italic;
+      font-size: 0.82rem; color: var(--ink-light); line-height: 2;
+      border-top: 1px solid var(--parchment); padding-top: 28px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-back">← Back to The Referrals Hub</a>
+  <span class="nav-title">Privacy Policy</span>
+</nav>
+
+<div class="page">
+
+  <div class="doc-eyebrow">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p class="doc-meta">The Referrals Hub &nbsp;·&nbsp; Last updated: March 2026</p>
+
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <div class="ornament-symbol">✦ ✦ ✦</div>
+    <div class="ornament-line r"></div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>The short version:</strong> The Referrals Hub does not collect, store, or sell your personal information. We are a simple directory of referral links. When you click a link and sign up with a third-party service, that service's own privacy policy applies.
+  </div>
+
+  <div class="doc-section">
+    <h2>1. Who We Are</h2>
+    <p>The Referrals Hub ("we," "our," or "us") is a website located at <a href="https://estransport.github.io/thereferralhub/">https://estransport.github.io/thereferralhub/</a>. We curate and share referral links to third-party programs, cash back portals, and rewards services.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>2. Information We Collect</h2>
+    <p>We do not collect any personal information from visitors. Specifically:</p>
+    <ul>
+      <li>We do not operate any sign-up forms or email capture tools.</li>
+      <li>We do not use cookies or tracking pixels of our own.</li>
+      <li>We do not use analytics software (such as Google Analytics).</li>
+      <li>We do not store IP addresses or device identifiers.</li>
+    </ul>
+    <p>Because this site is hosted on GitHub Pages, GitHub may collect limited technical data (such as IP addresses) as part of their standard infrastructure. Please refer to <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Statement</a> for details.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>3. Third-Party Links & Referral Programs</h2>
+    <p>Our site contains referral and affiliate links to third-party websites and services. A current list of all featured programs can be found on <a href="index.html">The Referrals Hub homepage</a>.</p>
+    <p>When you click one of these links and visit or sign up on a third-party site, you are subject to that company's own privacy policy and terms of service. We have no control over and assume no responsibility for the content, privacy practices, or data handling of any third-party sites.</p>
+    <p>We encourage you to review the privacy policy of every service before providing personal information.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>4. Affiliate Disclosure</h2>
+    <p>Some links on The Referrals Hub are referral or affiliate links. This means we may earn a small bonus or commission if you sign up through our link — at no extra cost to you. We only feature programs we personally use and recommend.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>5. Children's Privacy</h2>
+    <p>The Referrals Hub is not directed at children under the age of 13. We do not knowingly collect any information from children. If you believe a child has provided personal information through our site, please contact us and we will take appropriate steps.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>6. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated date at the top. We encourage you to review this page periodically.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>7. Questions & Support</h2>
+    <p>The Referrals Hub is a directory of referral links — we are not a support channel for any of the programs listed on this site. If you have questions or concerns about a sign-up, referral bonus, account issue, or payout, please contact the support team of the individual program directly through their official website.</p>
+    <p>For general questions about this Privacy Policy, you may visit <a href="index.html">The Referrals Hub homepage</a>. Please note we are unable to assist with issues related to third-party services.</p>
+  </div>
+
+  <footer>
+    © 2026 The Referrals Hub · <a href="index.html">Home</a> · <a href="disclaimer.html">Disclaimer</a>
+  </footer>
+
+</div>
+</body>
+</html>
