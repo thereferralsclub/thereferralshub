@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>The Referrals Hub — Explainer Video</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  body {
+    width:1280px;height:720px;overflow:hidden;
+    background:#faf4ec;
+    font-family:'DM Sans',sans-serif;
+    color:#2a1a0f;
+  }
+
+  #scene { width:1280px;height:720px;position:relative;overflow:hidden; }
+
+  .hidden { opacity:0; }
+
+  @keyframes fadeIn    { from{opacity:0}                              to{opacity:1} }
+  @keyframes riseIn    { from{opacity:0;transform:translateY(30px)}  to{opacity:1;transform:translateY(0)} }
+  @keyframes slideLeft { from{opacity:0;transform:translateX(60px)}  to{opacity:1;transform:translateX(0)} }
+  @keyframes slideRight{ from{opacity:0;transform:translateX(-60px)} to{opacity:1;transform:translateX(0)} }
+  @keyframes popIn     { from{opacity:0;transform:scale(0.7)}        to{opacity:1;transform:scale(1)} }
+
+  .anim-fade  { animation:fadeIn  0.7s ease forwards; }
+  .anim-rise  { animation:riseIn  0.7s cubic-bezier(0.22,1,0.36,1) forwards; }
+  .anim-left  { animation:slideLeft  0.7s cubic-bezier(0.22,1,0.36,1) forwards; }
+  .anim-right { animation:slideRight 0.7s cubic-bezier(0.22,1,0.36,1) forwards; }
+  .anim-pop   { animation:popIn   0.6s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+
+  .scene-frame { position:absolute;inset:0;opacity:0;transition:opacity 0.5s ease;pointer-events:none; }
+  .scene-frame.active { opacity:1;pointer-events:all; }
+
+  .sc-blob1 { position:absolute;width:600px;height:400px;background:rgba(184,92,56,0.1);border-radius:50%;top:-80px;right:-100px;filter:blur(100px);pointer-events:none; }
+  .sc-blob2 { position:absolute;width:500px;height:350px;background:rgba(196,154,42,0.08);border-radius:50%;bottom:-60px;left:-80px;filter:blur(90px);pointer-events:none; }
+  .sc-blob3 { position:absolute;width:700px;height:500px;background:rgba(110,143,104,0.07);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(120px);pointer-events:none; }
+
+  em { color:#b85c38;font-style:italic; }
+
+  .eyebrow-pill {
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(184,92,56,0.12);color:#b85c38;
+    font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+    padding:7px 20px;border-radius:40px;border:1px solid rgba(184,92,56,0.25);
+    margin-bottom:24px;
+  }
+  .ornament { display:flex;align-items:center;gap:14px;margin:18px 0; }
+  .orn-line  { width:64px;height:1px;background:linear-gradient(90deg,transparent,#e8956d); }
+  .orn-line.r{ background:linear-gradient(90deg,#e8956d,transparent); }
+  .orn-sym   { color:#e8956d;font-size:12px;letter-spacing:4px; }
+
+  .url-pill {
+    font-size:14px;color:#c49a2a;letter-spacing:0.07em;font-weight:500;
+    background:rgba(196,154,42,0.1);padding:8px 22px;border-radius:40px;
+    border:1px solid rgba(196,154,42,0.25);margin-top:28px;
+  }
+
+  /* S1 */
+  #s1 { display:flex;flex-direction:column;align-items:center;justify-content:center;background:#faf4ec; }
+  #s1 h1 { font-family:'Cormorant Garamond',serif;font-size:76px;font-weight:700;line-height:1.05;text-align:center;letter-spacing:-0.01em;margin-bottom:18px; }
+  #s1 .sub { font-size:19px;color:#9b7558;line-height:1.7;text-align:center;max-width:560px;font-weight:300; }
+
+  /* S2 */
+  #s2 { display:flex;align-items:center;justify-content:center;gap:80px;padding:60px;background:#faf4ec; }
+  .scatter-apps { display:flex;flex-direction:column;gap:14px;flex-shrink:0; }
+  .scatter-app {
+    display:flex;align-items:center;gap:12px;
+    background:#fffaf4;border:1px solid rgba(184,92,56,0.15);border-radius:14px;
+    padding:11px 18px;font-size:14px;font-weight:500;position:relative;
+  }
+  .app-dot { width:10px;height:10px;border-radius:50%;flex-shrink:0; }
+  .arrow-out { position:absolute;right:-28px;top:50%;transform:translateY(-50%);font-size:18px;color:#e8956d;opacity:0.45; }
+  .problem-text h2 { font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;line-height:1.1;margin-bottom:16px; }
+  .problem-text p  { font-size:16px;color:#9b7558;line-height:1.75;max-width:380px; }
+
+  /* S3 */
+  #s3 { display:flex;flex-direction:column;align-items:center;justify-content:center;background:#faf4ec; }
+  #s3 .hub-label { font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;text-align:center;margin-bottom:10px; }
+  #s3 .hub-sub   { font-size:16px;color:#9b7558;margin-bottom:44px;text-align:center; }
+  .hub-layout { display:flex;align-items:center;justify-content:center; }
+  .hub-col { display:flex;flex-direction:column;gap:12px; }
+  .hub-pill {
+    background:#fffaf4;border:1px solid rgba(184,92,56,0.18);border-radius:40px;
+    padding:10px 22px;font-size:13px;font-weight:500;
+    display:flex;align-items:center;gap:8px;white-space:nowrap;
+  }
+  .hub-pill .dot { width:8px;height:8px;border-radius:50%;flex-shrink:0; }
+  .hub-center {
+    width:166px;height:166px;border-radius:50%;
+    background:linear-gradient(135deg,#b85c38,#d4714e);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    color:#fffaf4;text-align:center;margin:0 52px;flex-shrink:0;
+    box-shadow:0 8px 40px rgba(184,92,56,0.3);
+  }
+  .hc-icon { font-size:28px;margin-bottom:4px; }
+  .hc-name { font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700; }
+  .hc-tag  { font-size:10px;opacity:0.85;letter-spacing:0.06em;text-transform:uppercase; }
+
+  /* S4 QUIZ */
+  #s4 { display:flex;align-items:center;justify-content:center;gap:80px;padding:60px 80px;background:#faf4ec; }
+  .quiz-mockup {
+    flex-shrink:0;width:380px;
+    background:#fffaf4;border:1px solid rgba(184,92,56,0.15);border-radius:24px;
+    padding:28px 28px 24px;box-shadow:0 12px 40px rgba(90,40,15,0.1);
+  }
+  .qm-label { font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#b85c38;margin-bottom:8px; }
+  .qm-q     { font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin-bottom:20px;line-height:1.3;color:#2a1a0f; }
+  .qm-opts  { display:flex;flex-direction:column;gap:10px; }
+  .qm-opt {
+    background:#faf4ec;border:1px solid rgba(184,92,56,0.2);border-radius:12px;
+    padding:10px 16px;font-size:13px;font-weight:500;
+    display:flex;align-items:center;gap:10px;color:#5c3d28;
+  }
+  .qm-opt.sel { background:rgba(184,92,56,0.1);border-color:#b85c38;color:#b85c38; }
+  .qm-circle { width:18px;height:18px;border-radius:50%;border:1.5px solid currentColor;flex-shrink:0; }
+  .qm-opt.sel .qm-circle { background:#b85c38;border-color:#b85c38; }
+  .quiz-text h2 { font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:700;line-height:1.1;margin-bottom:16px; }
+  .quiz-text p  { font-size:16px;color:#9b7558;line-height:1.75;max-width:360px; }
+  .quiz-badge {
+    display:inline-flex;align-items:center;gap:8px;margin-top:20px;
+    background:rgba(196,154,42,0.12);color:#c49a2a;
+    font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+    padding:6px 16px;border-radius:40px;border:1px solid rgba(196,154,42,0.25);
+  }
+
+  /* S5 */
+  #s5 { display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 80px;background:#faf4ec; }
+  #s5 .title { font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:700;margin-bottom:8px;text-align:center; }
+  #s5 .sub   { font-size:15px;color:#9b7558;margin-bottom:36px;text-align:center; }
+  .cat-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100%; }
+  .cat-card { background:#fffaf4;border:1px solid rgba(184,92,56,0.14);border-radius:20px;padding:22px 18px;text-align:center; }
+  .cat-icon { font-size:26px;margin-bottom:10px; }
+  .cat-name { font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;margin-bottom:6px;color:#2a1a0f; }
+  .cat-desc { font-size:12px;color:#9b7558;line-height:1.5; }
+  .cat-badge { display:inline-block;margin-top:10px;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px; }
+  .bg-gold  { background:#f0dea0;color:#c49a2a;border:1px solid rgba(196,154,42,0.3); }
+  .bg-green { background:#d8ebd5;color:#6e8f68;border:1px solid rgba(110,143,104,0.25); }
+  .bg-terra { background:#f5ddd3;color:#8b3a22;border:1px solid rgba(184,92,56,0.22); }
+  .bg-blue  { background:#e8eeff;color:#3a5faa;border:1px solid rgba(58,95,170,0.2); }
+
+  /* S6 */
+  #s6 { display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 100px;background:#faf4ec; }
+  #s6 .title { font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:700;margin-bottom:8px;text-align:center; }
+  #s6 .sub   { font-size:15px;color:#9b7558;margin-bottom:44px;text-align:center; }
+  .steps-row { display:flex;align-items:flex-start;justify-content:center;width:100%; }
+  .step-item { display:flex;flex-direction:column;align-items:center;text-align:center;flex:1;position:relative; }
+  .step-num {
+    width:54px;height:54px;border-radius:50%;
+    background:linear-gradient(135deg,#b85c38,#d4714e);
+    color:#fffaf4;font-size:22px;font-weight:600;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:16px;box-shadow:0 4px 20px rgba(184,92,56,0.25);
+  }
+  .step-title { font-size:15px;font-weight:600;margin-bottom:8px;color:#2a1a0f; }
+  .step-desc  { font-size:12px;color:#9b7558;line-height:1.6;max-width:180px; }
+  .step-conn { position:absolute;top:27px;left:calc(50% + 42px);width:calc(100% - 84px);height:2px;background:linear-gradient(90deg,#d4714e,#e8956d);opacity:0.3; }
+
+  /* S7 */
+  #s7 { display:flex;flex-direction:column;align-items:center;justify-content:center;background:#faf4ec; }
+  #s7 h2 { font-family:'Cormorant Garamond',serif;font-size:66px;font-weight:700;text-align:center;line-height:1.08;margin-bottom:16px; }
+  #s7 p  { font-size:18px;color:#9b7558;text-align:center;max-width:500px;line-height:1.7;margin-bottom:36px; }
+  .cta-btn {
+    background:linear-gradient(135deg,#b85c38,#d4714e);color:#fffaf4;
+    border-radius:50px;padding:16px 48px;font-size:17px;font-weight:600;
+    letter-spacing:0.02em;box-shadow:0 8px 32px rgba(184,92,56,0.3);
+    margin-bottom:16px;
+  }
+  .tagline { font-size:13px;color:#b8a898;margin-top:12px;font-style:italic; }
+
+  #progress-bar { position:fixed;bottom:0;left:0;height:4px;background:linear-gradient(90deg,#b85c38,#d4714e);transition:width 0.4s ease;z-index:999; }
+</style>
+</head>
+<body>
+<div id="scene">
+
+  <!-- S1: TITLE -->
+  <div class="scene-frame active" id="s1">
+    <div class="sc-blob1"></div><div class="sc-blob2"></div>
+    <div class="eyebrow-pill hidden" id="s1-ey">✦ Free to join · No catch</div>
+    <h1 class="hidden" id="s1-h1">The <em>Referrals</em> Hub</h1>
+    <div class="ornament hidden" id="s1-orn">
+      <div class="orn-line"></div><span class="orn-sym">✦ ✦ ✦</span><div class="orn-line r"></div>
+    </div>
+    <div class="sub hidden" id="s1-sub">Free cash back, referral bonuses &amp; rewards<br>— hand-picked and all in one place.</div>
+    <div class="url-pill hidden" id="s1-url">thereferralsclub.github.io/thereferralshub</div>
+  </div>
+
+  <!-- S2: PROBLEM -->
+  <div class="scene-frame" id="s2">
+    <div class="sc-blob1"></div>
+    <div class="scatter-apps">
+      <div class="scatter-app hidden" id="s2-a1"><div class="app-dot" style="background:#e8956d"></div>Rakuten cash back<span class="arrow-out">→</span></div>
+      <div class="scatter-app hidden" id="s2-a2"><div class="app-dot" style="background:#c49a2a"></div>Chase Freedom bonus<span class="arrow-out">→</span></div>
+      <div class="scatter-app hidden" id="s2-a3"><div class="app-dot" style="background:#6e8f68"></div>FreeCash rewards<span class="arrow-out">→</span></div>
+      <div class="scatter-app hidden" id="s2-a4"><div class="app-dot" style="background:#3a5faa"></div>Coinbase BTC bonus<span class="arrow-out">→</span></div>
+      <div class="scatter-app hidden" id="s2-a5"><div class="app-dot" style="background:#8b3a22"></div>DoorDash Dasher bonus<span class="arrow-out">→</span></div>
+    </div>
+    <div class="problem-text">
+      <h2 class="hidden" id="s2-h2">Great bonuses are<br><em>scattered everywhere.</em></h2>
+      <p class="hidden" id="s2-p">Dozens of apps offer sign-up rewards — but who has time to hunt them all down? There had to be a better way.</p>
+    </div>
+  </div>
+
+  <!-- S3: SOLUTION -->
+  <div class="scene-frame" id="s3">
+    <div class="sc-blob3"></div>
+    <div class="hub-label hidden" id="s3-h">Enter <em>The Referrals Hub</em></div>
+    <div class="hub-sub hidden" id="s3-sub">One curated page. Every top deal. All free.</div>
+    <div class="hub-layout">
+      <div class="hub-col">
+        <div class="hub-pill hidden" id="s3-p1"><div class="dot" style="background:#e8956d"></div>Cash Back</div>
+        <div class="hub-pill hidden" id="s3-p2"><div class="dot" style="background:#c49a2a"></div>Credit Cards</div>
+        <div class="hub-pill hidden" id="s3-p3"><div class="dot" style="background:#6e8f68"></div>Rewards Apps</div>
+      </div>
+      <div class="hub-center hidden" id="s3-center">
+        <div class="hc-icon">⟳</div>
+        <div class="hc-name">Referrals Hub</div>
+        <div class="hc-tag">free · curated</div>
+      </div>
+      <div class="hub-col">
+        <div class="hub-pill hidden" id="s3-p4"><div class="dot" style="background:#3a5faa"></div>Crypto</div>
+        <div class="hub-pill hidden" id="s3-p5"><div class="dot" style="background:#8b3a22"></div>Gig &amp; Delivery</div>
+        <div class="hub-pill hidden" id="s3-p6"><div class="dot" style="background:#c49a2a"></div>Utilities</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S4: QUIZ -->
+  <div class="scene-frame" id="s4">
+    <div class="sc-blob1"></div>
+    <div class="quiz-mockup">
+      <div class="qm-label">🎯 Find your best deal</div>
+      <div class="qm-q hidden" id="s4-q">What's your main goal?</div>
+      <div class="qm-opts">
+        <div class="qm-opt hidden" id="s4-o1"><div class="qm-circle"></div>Save money on shopping</div>
+        <div class="qm-opt sel hidden" id="s4-o2"><div class="qm-circle"></div>Earn free cash online</div>
+        <div class="qm-opt hidden" id="s4-o3"><div class="qm-circle"></div>Get a credit card bonus</div>
+        <div class="qm-opt hidden" id="s4-o4"><div class="qm-circle"></div>Work on my own schedule</div>
+      </div>
+    </div>
+    <div class="quiz-text">
+      <h2 class="hidden" id="s4-h">Not sure where<br><em>to start?</em></h2>
+      <p class="hidden" id="s4-p">Take the free quiz and get matched with the best programs for your goals — in under 30 seconds.</p>
+      <div class="quiz-badge hidden" id="s4-b">🎯 Personalized matches · Free</div>
+    </div>
+  </div>
+
+  <!-- S5: CATEGORIES -->
+  <div class="scene-frame" id="s5">
+    <div class="title hidden" id="s5-h">Four ways to <em>earn</em></div>
+    <div class="sub hidden" id="s5-sub">Hand-picked programs across every category</div>
+    <div class="cat-grid">
+      <div class="cat-card hidden" id="s5-c1"><div class="cat-icon">💳</div><div class="cat-name">Cash Back</div><div class="cat-desc">Rakuten, FreeCash &amp; more — earn every time you shop.</div><div class="cat-badge bg-gold">Cash Bonus</div></div>
+      <div class="cat-card hidden" id="s5-c2"><div class="cat-icon">🏦</div><div class="cat-name">Credit Cards</div><div class="cat-desc">Big sign-up bonuses from Chase, Discover &amp; more.</div><div class="cat-badge bg-green">Sign-up Bonus</div></div>
+      <div class="cat-card hidden" id="s5-c3"><div class="cat-icon">🚗</div><div class="cat-name">Gig &amp; Delivery</div><div class="cat-desc">DoorDash Dasher bonus — earn on your own schedule.</div><div class="cat-badge bg-terra">Dasher Bonus</div></div>
+      <div class="cat-card hidden" id="s5-c4"><div class="cat-icon">₿</div><div class="cat-name">Crypto</div><div class="cat-desc">Coinbase BTC reward — perfect for first-timers.</div><div class="cat-badge bg-blue">BTC Reward</div></div>
+    </div>
+  </div>
+
+  <!-- S6: HOW IT WORKS -->
+  <div class="scene-frame" id="s6">
+    <div class="title hidden" id="s6-h">How it <em>works</em></div>
+    <div class="sub hidden" id="s6-sub">Three simple steps to free money</div>
+    <div class="steps-row">
+      <div class="step-item">
+        <div class="step-num hidden" id="s6-n1">1</div>
+        <div class="step-title hidden" id="s6-t1">Visit the Hub</div>
+        <div class="step-desc hidden" id="s6-d1">Browse our list — or take the quiz to get matched instantly.</div>
+        <div class="step-conn"></div>
+      </div>
+      <div class="step-item">
+        <div class="step-num hidden" id="s6-n2">2</div>
+        <div class="step-title hidden" id="s6-t2">Click Any Link</div>
+        <div class="step-desc hidden" id="s6-d2">Sign up for free through our referral link. No fees. No tricks.</div>
+        <div class="step-conn"></div>
+      </div>
+      <div class="step-item">
+        <div class="step-num hidden" id="s6-n3">3</div>
+        <div class="step-title hidden" id="s6-t3">Both Earn</div>
+        <div class="step-desc hidden" id="s6-d3">You get a bonus. We get a bonus. A genuine win-win.</div>
+        <div class="step-conn"></div>
+      </div>
+      <div class="step-item">
+        <div class="step-num hidden" id="s6-n4">4</div>
+        <div class="step-title hidden" id="s6-t4">Share &amp; Stack</div>
+        <div class="step-desc hidden" id="s6-d4">Share the Hub with friends and keep stacking rewards.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S7: CTA -->
+  <div class="scene-frame" id="s7">
+    <div class="sc-blob1"></div><div class="sc-blob2"></div>
+    <h2 class="hidden" id="s7-h">Ready to start<br><em>earning for free?</em></h2>
+    <p class="hidden" id="s7-p">No subscriptions. No fees. Just free money waiting for you to claim it.</p>
+    <div class="cta-btn hidden" id="s7-btn">Visit The Referrals Hub →</div>
+    <div class="url-pill hidden" id="s7-url">thereferralsclub.github.io/thereferralshub</div>
+    <div class="tagline hidden" id="s7-tag">Free to join · Win-win rewards · Trusted programs only</div>
+  </div>
+
+</div>
+<div id="progress-bar" style="width:0%"></div>
+
+<script>
+const SCENES=[
+  {id:'s1',dur:5200},
+  {id:'s2',dur:5800},
+  {id:'s3',dur:5800},
+  {id:'s4',dur:6500},
+  {id:'s5',dur:5800},
+  {id:'s6',dur:6500},
+  {id:'s7',dur:7000},
+];
+const TOTAL=SCENES.reduce((a,s)=>a+s.dur,0);
+let cur=0,elapsed=0,lastTs=null;
+
+function show(id,delay,cls){
+  setTimeout(()=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    el.classList.remove('hidden');
+    el.style.animation='none';
+    el.offsetHeight;
+    el.style.animation='';
+    el.classList.add('anim-'+cls);
+  },delay);
+}
+
+function runScene(i){
+  document.querySelectorAll('.scene-frame').forEach(f=>f.classList.remove('active'));
+  document.getElementById(SCENES[i].id).classList.add('active');
+  if(i===0){
+    show('s1-ey',300,'fade');show('s1-h1',600,'rise');
+    show('s1-orn',1100,'fade');show('s1-sub',1400,'rise');show('s1-url',2000,'fade');
+  }else if(i===1){
+    show('s2-h2',300,'rise');show('s2-p',700,'rise');
+    ['s2-a1','s2-a2','s2-a3','s2-a4','s2-a5'].forEach((id,k)=>show(id,400+k*200,'left'));
+  }else if(i===2){
+    show('s3-h',200,'rise');show('s3-sub',600,'fade');show('s3-center',900,'pop');
+    ['s3-p1','s3-p2','s3-p3'].forEach((id,k)=>show(id,1200+k*200,'right'));
+    ['s3-p4','s3-p5','s3-p6'].forEach((id,k)=>show(id,1200+k*200,'left'));
+  }else if(i===3){
+    show('s4-h',200,'rise');show('s4-p',600,'rise');show('s4-b',1000,'fade');
+    show('s4-q',800,'fade');
+    ['s4-o1','s4-o2','s4-o3','s4-o4'].forEach((id,k)=>show(id,1000+k*200,'rise'));
+  }else if(i===4){
+    show('s5-h',200,'rise');show('s5-sub',500,'fade');
+    ['s5-c1','s5-c2','s5-c3','s5-c4'].forEach((id,k)=>show(id,700+k*200,'rise'));
+  }else if(i===5){
+    show('s6-h',200,'rise');show('s6-sub',500,'fade');
+    ['s6-n1','s6-n2','s6-n3','s6-n4'].forEach((id,k)=>show(id,800+k*300,'pop'));
+    ['s6-t1','s6-t2','s6-t3','s6-t4'].forEach((id,k)=>show(id,1000+k*300,'rise'));
+    ['s6-d1','s6-d2','s6-d3','s6-d4'].forEach((id,k)=>show(id,1200+k*300,'fade'));
+  }else if(i===6){
+    show('s7-h',300,'rise');show('s7-p',800,'rise');
+    show('s7-btn',1300,'pop');show('s7-url',1700,'fade');show('s7-tag',2100,'fade');
+  }
+}
+
+function tick(ts){
+  if(!lastTs)lastTs=ts;
+  elapsed+=ts-lastTs;lastTs=ts;
+  document.getElementById('progress-bar').style.width=(Math.min(elapsed/TOTAL,1)*100)+'%';
+  let off=0;
+  for(let i=0;i<SCENES.length;i++){
+    if(elapsed<off+SCENES[i].dur){if(i!==cur){cur=i;runScene(i);}break;}
+    off+=SCENES[i].dur;
+  }
+  if(elapsed<TOTAL)requestAnimationFrame(tick);
+}
+runScene(0);
+requestAnimationFrame(tick);
+</script>
+</body>
+</html>
