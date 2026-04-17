@@ -100,32 +100,45 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
     }
 
-    .page { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 160px 24px 100px; }
+    .page { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 150px 24px 100px; }
 
     /* Navbar */
     .navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 14px 28px;
-      display: flex; align-items: center;
-      background: rgba(250,244,236,0.9);
+      display: flex; flex-direction: column;
+      background: rgba(250,244,236,0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
+    }
+    .navbar-top {
+      display: flex; align-items: center;
+      padding: 10px 16px 8px;
     }
     .navbar svg {
       border-radius: 8px;
       box-shadow: 0 2px 12px rgba(90,40,15,0.15);
       display: block;
+      flex-shrink: 0;
     }
+    .navbar-pills-row {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 0 16px 10px;
+    }
+    .navbar-pills-row::-webkit-scrollbar { display: none; }
 
     /* Scroll offset for fixed navbar */
     .section {
-      scroll-margin-top: 160px;
+      scroll-margin-top: 140px;
     }
 
     /* Nav pills */
     .nav-pills {
       display: flex; align-items: center; gap: 8px;
-      margin-left: 24px; flex-wrap: wrap;
+      flex-wrap: nowrap;
+      width: max-content;
     }
     .nav-pill {
       display: inline-flex; align-items: center; gap: 5px;
@@ -359,10 +372,12 @@
     }
 
     @media (max-width: 520px) {
+      .page { padding-top: 140px; }
       .card { padding: 15px 14px; gap: 12px; }
       .card-name { font-size: 1rem; }
       header { flex-direction: column; text-align: center; }
       .header-text { text-align: center; }
+      .navbar-top svg { width: 240px; height: 56px; }
     }
 
     .card-trust {
@@ -554,7 +569,8 @@
 <body>
 
 <nav class="navbar">
-  <svg width="260" height="60" viewBox="0 0 260 60" xmlns="http://www.w3.org/2000/svg">
+  <div class="navbar-top">
+  <svg width="320" height="74" viewBox="0 0 260 60" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="nb-gold" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stop-color="#FFF0A0"/>
@@ -584,6 +600,8 @@
     <!-- "HUB" text -->
     <text x="194" y="44" font-family="Georgia,'Times New Roman',serif" font-size="13" font-weight="700" letter-spacing="5" fill="#5c3d28">HUB</text>
   </svg>
+  </div><!-- /navbar-top -->
+  <div class="navbar-pills-row">
   <div class="nav-pills">
     <a href="#quiz" class="nav-pill" style="background:var(--terracotta);color:#fff;border-color:var(--terracotta);">🎯 Take the Quiz</a>
     <a href="#cashback" class="nav-pill">💰 Cash Back</a>
@@ -592,7 +610,8 @@
     <a href="#referrals" class="nav-pill">🎁 Referrals</a>
     <a href="#gig" class="nav-pill">🚗 Gig & Delivery</a>
     <a href="#utilities" class="nav-pill">⚡ Utilities</a>
-  </div>
+  </div><!-- /nav-pills -->
+  </div><!-- /navbar-pills-row -->
 </nav>
 
 <div class="page">
