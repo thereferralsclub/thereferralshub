@@ -48,6 +48,21 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
     }
 
+    .top-bar {
+      position: relative; z-index: 2;
+      background: var(--terracotta);
+      text-align: center;
+      padding: 11px 24px;
+    }
+    .top-bar a {
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem; font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+    .top-bar a span { opacity: 0.75; font-weight: 400; margin-right: 8px; }
+
     .page {
       position: relative; z-index: 1;
       max-width: 860px; margin: 0 auto;
@@ -179,6 +194,12 @@
   </style>
 </head>
 <body>
+<div class="top-bar">
+  <a href="https://thereferralsclub.github.io/thereferralshub/">
+    <span>🔗 Find all the offers at</span>thereferralsclub.github.io/thereferralshub
+  </a>
+</div>
+
 <div class="page">
 
   <header>
