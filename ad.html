@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Referrals Hub — Ad</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Spectral:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #faf4ec;
+      --cream-dark: #f2e8d9;
+      --parchment: #ede0cc;
+      --terracotta: #b85c38;
+      --terracotta-mid: #d4714e;
+      --terracotta-light: #e8956d;
+      --terracotta-pale: #f5ddd3;
+      --sienna: #8b3a22;
+      --ochre: #c49a2a;
+      --ochre-light: #f0dea0;
+      --sage-light: #d8ebd5;
+      --ink: #2a1a0f;
+      --ink-mid: #5c3d28;
+      --ink-light: #9b7558;
+      --card-bg: #fffaf4;
+      --border: rgba(184,92,56,0.14);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        radial-gradient(ellipse 70% 55% at 92% -5%, rgba(184,92,56,0.13) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 45% at -8% 85%, rgba(196,154,42,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 35% at 55% 105%, rgba(110,143,104,0.08) 0%, transparent 55%);
+    }
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.28;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    }
+
+    .page {
+      position: relative; z-index: 1;
+      max-width: 860px; margin: 0 auto;
+      padding: 60px 24px 60px;
+    }
+
+    /* ── HEADER ── */
+    header { text-align: center; margin-bottom: 48px; }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--terracotta-pale); color: var(--terracotta);
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 40px;
+      border: 1px solid rgba(184,92,56,0.22);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 700; line-height: 1.08; letter-spacing: -0.01em;
+      color: var(--ink); margin-bottom: 14px;
+    }
+    h1 em { color: var(--terracotta); font-style: italic; }
+
+    .subtitle {
+      font-family: 'Spectral', serif;
+      font-size: 1rem; color: var(--ink-light);
+      max-width: 480px; margin: 0 auto 20px; line-height: 1.8;
+    }
+
+    .ornament {
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+    }
+    .ornament-line { width: 64px; height: 1px; background: linear-gradient(90deg, transparent, var(--terracotta-light)); }
+    .ornament-line.r { background: linear-gradient(90deg, var(--terracotta-light), transparent); }
+    .ornament-symbol { color: var(--terracotta-light); font-size: 13px; letter-spacing: 4px; }
+
+    /* ── CARDS ── */
+    .cards { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; margin-top: 40px; }
+
+    .card {
+      display: flex; align-items: center; gap: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px 20px;
+      position: relative; overflow: hidden;
+    }
+    .card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(110deg, rgba(255,255,255,0.6) 0%, transparent 50%);
+      pointer-events: none; border-radius: 20px;
+    }
+    .card::before {
+      content: '';
+      position: absolute; left: 0; top: 12%; bottom: 12%;
+      width: 3px; border-radius: 4px; background: var(--terracotta-mid);
+    }
+
+    .card-icon {
+      font-size: 1.8rem; flex-shrink: 0;
+      position: relative; z-index: 1;
+    }
+
+    .card-body { flex: 1; min-width: 0; position: relative; z-index: 1; }
+
+    .card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 700; color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .card-desc {
+      font-size: 0.8rem; color: var(--ink-light); line-height: 1.6;
+      margin-bottom: 6px;
+    }
+
+    .card-trust {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    }
+    .trust-stars { color: var(--ochre); font-size: 0.75rem; }
+    .trust-stat  { font-size: 0.72rem; color: var(--ink-light); }
+    .trust-verified {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--terracotta); background: var(--terracotta-pale);
+      padding: 2px 8px; border-radius: 20px;
+      border: 1px solid rgba(184,92,56,0.18);
+    }
+
+    .card-right {
+      display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
+      position: relative; z-index: 1; flex-shrink: 0;
+    }
+
+    .badge-bonus {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em;
+      padding: 5px 13px; border-radius: 40px; white-space: nowrap;
+    }
+    .bonus-gold  { background: var(--ochre-light); color: var(--sienna); border: 1px solid rgba(196,154,42,0.3); }
+    .bonus-terra { background: var(--terracotta-pale); color: var(--sienna); border: 1px solid rgba(184,92,56,0.25); }
+    .bonus-green { background: var(--sage-light); color: #3a6b35; border: 1px solid rgba(58,107,53,0.25); }
+
+    .card-arrow { font-size: 1rem; color: var(--terracotta-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      font-size: 0.78rem; color: var(--ink-light);
+      line-height: 1.9;
+      border-top: 1px solid var(--parchment);
+      padding-top: 28px;
+    }
+    .footer-divider {
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      margin-bottom: 16px;
+    }
+    .footer-divider-line { flex: 1; height: 1px; background: var(--parchment); max-width: 120px; }
+    .footer-divider-mark { color: var(--terracotta-light); font-size: 11px; }
+    .site-url {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem; font-weight: 600;
+      color: var(--terracotta); letter-spacing: 0.03em;
+      margin-top: 6px; text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="eyebrow">✦ Free to Join &nbsp;·&nbsp; No Catch &nbsp;·&nbsp; Real Rewards</div>
+    <h1>Earn <em>Real Money</em><br>on What You Already Do</h1>
+    <p class="subtitle">Cash back portals, referral bonuses &amp; sign-up rewards — hand-picked and all in one place.</p>
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <span class="ornament-symbol">✦</span>
+      <div class="ornament-line r"></div>
+    </div>
+  </header>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-icon">💰</div>
+      <div class="card-body">
+        <div class="card-name">Cash Back Portal</div>
+        <div class="card-desc">Earn cash back at 3,500+ stores automatically. Set it up once and get paid every quarter.</div>
+        <div class="card-trust">
+          <span class="trust-stars">★★★★★</span>
+          <span class="trust-stat">4.6 · 15M+ members</span>
+          <span class="trust-verified">Free to join</span>
+        </div>
+      </div>
+      <div class="card-right">
+        <div class="badge-bonus bonus-gold">+$30 Bonus</div>
+        <div class="card-arrow">→</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">💳</div>
+      <div class="card-body">
+        <div class="card-name">Rewards Credit Card</div>
+        <div class="card-desc">1.5% cash back on every purchase, 3% on dining. No annual fee and a massive sign-up bonus.</div>
+        <div class="card-trust">
+          <span class="trust-stars">★★★★★</span>
+          <span class="trust-stat">4.8 · No annual fee</span>
+          <span class="trust-verified">Top Pick</span>
+        </div>
+      </div>
+      <div class="card-right">
+        <div class="badge-bonus bonus-gold">+$200 Bonus</div>
+        <div class="card-arrow">→</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🏦</div>
+      <div class="card-body">
+        <div class="card-name">Free Checking Account</div>
+        <div class="card-desc">No monthly fees, no minimum balance, no overdraft fees. 70,000+ free ATMs. Open in minutes.</div>
+        <div class="card-trust">
+          <span class="trust-stars">★★★★★</span>
+          <span class="trust-stat">4.8 · NerdWallet · FDIC insured</span>
+          <span class="trust-verified">No fees ever</span>
+        </div>
+      </div>
+      <div class="card-right">
+        <div class="badge-bonus bonus-terra">Free Account</div>
+        <div class="card-arrow">→</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🎮</div>
+      <div class="card-body">
+        <div class="card-name">Earn Free Cash &amp; Rewards</div>
+        <div class="card-desc">Complete offers, surveys &amp; games for free cash and gift cards. No credit card needed.</div>
+        <div class="card-trust">
+          <span class="trust-stars">★★★★★</span>
+          <span class="trust-stat">4.5 · 10M+ users</span>
+          <span class="trust-verified">No credit card</span>
+        </div>
+      </div>
+      <div class="card-right">
+        <div class="badge-bonus bonus-green">Free Bonus</div>
+        <div class="card-arrow">→</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🚗</div>
+      <div class="card-body">
+        <div class="card-name">Gig &amp; Delivery</div>
+        <div class="card-desc">Earn on your own schedule. Bonus after your first deliveries — no experience needed.</div>
+        <div class="card-trust">
+          <span class="trust-stars">★★★★★</span>
+          <span class="trust-stat">4.6 · 7M+ drivers</span>
+          <span class="trust-verified">Weekly pay</span>
+        </div>
+      </div>
+      <div class="card-right">
+        <div class="badge-bonus bonus-terra">Dasher Bonus</div>
+        <div class="card-arrow">→</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-divider">
+      <div class="footer-divider-line"></div>
+      <div class="footer-divider-mark">✦</div>
+      <div class="footer-divider-line"></div>
+    </div>
+    Every program is hand-picked and free to join. Click any link, sign up for free, and we'll both earn a reward. ♡<br>
+    <a class="site-url" href="https://thereferralsclub.github.io/thereferralshub/">thereferralsclub.github.io/thereferralshub</a>
+  </footer>
+
+</div>
+</body>
+</html>
