@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Referrals Hub — Free Cash Back, Referral Bonuses & Rewards</title>
   <meta name="description" content="Earn free cash back, referral bonuses, and rewards at The Referrals Hub. The best sign-up bonuses, cash back portals, and gig apps — all in one place. Free to join." />
-  <meta name="keywords" content="cash back, referral bonus, earn money online, free cash, sign up bonus, make money from home, referral programs, rewards, Rakuten, DoorDash, FreeCash, Chase Freedom, Coinbase, Netspend" />
+  <meta name="keywords" content="cash back, referral bonus, earn money online, free cash, sign up bonus, make money from home, referral programs, rewards, Rakuten, DoorDash, FreeCash, Chase Freedom, Coinbase, Capital One 360 Checking" />
   <meta name="author" content="The Referrals Hub" />
 
   <!-- ── CANONICAL ─────────────────────────────────────────── -->
@@ -134,29 +134,39 @@
       scroll-margin-top: 140px;
     }
 
-    /* Nav pills */
+    /* Nav tabs */
     .nav-pills {
-      display: flex; align-items: center; gap: 8px;
+      display: flex; align-items: stretch; gap: 0;
       flex-wrap: nowrap;
       width: max-content;
+      border-top: 1px solid var(--border);
     }
     .nav-pill {
       display: inline-flex; align-items: center; gap: 5px;
-      background: var(--terracotta-pale);
-      color: var(--terracotta);
-      font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.04em;
-      padding: 6px 14px; border-radius: 40px;
-      border: 1px solid rgba(184,92,56,0.22);
+      background: transparent;
+      color: var(--ink-light);
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border: none;
+      border-bottom: 2px solid transparent;
       text-decoration: none;
-      transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+      transition: color 0.2s ease, border-color 0.2s ease;
       white-space: nowrap;
+      position: relative;
     }
     .nav-pill:hover {
-      background: var(--terracotta);
-      color: var(--cream);
-      border-color: var(--terracotta);
-      transform: translateY(-1px);
+      color: var(--terracotta);
+      border-bottom-color: var(--terracotta-light);
+    }
+    .nav-pill.nav-pill-active,
+    .nav-pill[style*="background:var(--terracotta)"] {
+      background: transparent !important;
+      color: var(--terracotta) !important;
+      border: none !important;
+      border-bottom: 2px solid var(--terracotta) !important;
+      font-weight: 600;
     }
 
         /* Header */
@@ -603,7 +613,7 @@
   </div><!-- /navbar-top -->
   <div class="navbar-pills-row">
   <div class="nav-pills">
-    <a href="#quiz" class="nav-pill" style="background:var(--terracotta);color:#fff;border-color:var(--terracotta);">🎯 Take the Quiz</a>
+    <a href="#quiz" class="nav-pill nav-pill-active">🎯 Take the Quiz</a>
     <a href="#cashback" class="nav-pill">💰 Cash Back</a>
     <a href="#earn" class="nav-pill">🎮 Earn Cash</a>
     <a href="#cards" class="nav-pill">💳 Credit Cards</a>
@@ -827,13 +837,13 @@
         href: 'https://drd.sh/cTyV6B3A8zJSVevI',
         bonusClass: 'bonus-terra'
       },
-      netspend: {
-        emoji: '💳',
-        name: 'Netspend',
-        why: 'No credit check required. Sign up and earn a referral bonus instantly — super simple.',
-        bonus: '🧡 Refer Bonus',
-        href: 'https://www.netspend.com/get-a-prepaid-card/?aid=RAF_1&site_id=RAF_OAC_URL&uref=5665823597',
-        bonusClass: 'bonus-terra'
+      capitalone: {
+        emoji: '🏦',
+        name: 'Capital One 360 Checking',
+        why: 'Zero fees, no minimum balance, 70,000+ free ATMs, and a 4.8-star NerdWallet rating. One of the best free checking accounts out there.',
+        bonus: '🏅 Free Account',
+        href: 'https://i.capitalone.com/JYG7IBfIi',
+        bonusClass: 'bonus-gold'
       },
       paypal: {
         emoji: '📱',
@@ -881,8 +891,8 @@
       {
         match: function(a){ return a[1]==='bonus' || a[3]==='beginner'; },
         title: 'The Quick-Win Seeker',
-        desc: 'You want fast, simple wins without complexity. Netspend and FreeCash both offer easy sign-up bonuses with zero commitment. Start here and explore more once you\'re comfortable.',
-        picks: ['netspend','freecash']
+        desc: 'You want fast, simple wins without complexity. Capital One 360 Checking and FreeCash both offer easy sign-up bonuses with zero commitment. Start here and explore more once you\'re comfortable.',
+        picks: ['capitalone','freecash']
       },
       {
         match: function(a){ return a[1]==='earn' && a[2]==='some'; },
@@ -1071,18 +1081,18 @@
         </div>
       </a>
 
-      <a href="https://www.netspend.com/get-a-prepaid-card/?aid=RAF_1&site_id=RAF_OAC_URL&uref=5665823597" class="card">
+      <a href="https://i.capitalone.com/JYG7IBfIi" class="card">
         <div class="card-body">
-          <div class="card-name">Netspend <span class="badge b-hot">🔥 Hot</span></div>
-          <div class="card-desc">A prepaid debit card with no credit check required. Great for budgeting or gifting. Earn a referral bonus just for signing up through my link.</div>
+          <div class="card-name">Capital One 360 Checking <span class="badge b-new">New</span></div>
+          <div class="card-desc">A top-rated fee-free checking account — no monthly fees, no minimum balance, no overdraft fees. Access 70,000+ free ATMs, earn interest on your balance, and bank from anywhere with a top-rated app.</div>
           <div class="card-trust">
-            <span class="trust-stars">★★★★☆</span>
-            <span class="trust-stat">4.2 · 10M+ cardholders</span>
-            <span class="trust-verified">No credit check</span>
+            <span class="trust-stars">★★★★★</span>
+            <span class="trust-stat">4.8 · NerdWallet · FDIC insured</span>
+            <span class="trust-verified">No fees ever</span>
           </div>
         </div>
         <div class="card-right">
-          <div class="badge-bonus bonus-terra">Refer Bonus</div>
+          <div class="badge-bonus bonus-gold">Free Account</div>
           <div class="card-arrow">→</div>
         </div>
       </a>
